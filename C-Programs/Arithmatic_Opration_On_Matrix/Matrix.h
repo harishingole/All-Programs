@@ -1,7 +1,6 @@
 #include<stdio.h>
 #include<stdlib.h>
 #define MAX 100
-
 int read_First_Array_Input(int,int,int[MAX][MAX]);
 int display(int,int,int [MAX][MAX]);
 int m,n,p,q;
@@ -23,7 +22,6 @@ int readInput()
 	printf("Enter Elements For Second an Array\n");
 	read_First_Array_Input(p,q,arr1);
 }
-
 int read_First_Array_Input(int a,int b,int arr[a][b])
 {
 	int i,j;
