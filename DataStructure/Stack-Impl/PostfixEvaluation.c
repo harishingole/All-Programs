@@ -41,7 +41,7 @@ int postfixEvaluation(char *arr)
 {
 	int Operand1,Operand2,value;
 	char *copyArrayLoc;
-	copyArray = arr;
+	copyArrayLoc = arr;
 	for(;*copyArrayLoc!='\0';copyArrayLoc++)
 	{
 		//for first digit or value
@@ -83,6 +83,14 @@ int postfixEvaluation(char *arr)
 int main()
 {
 	char arr[MAX];
+	printf(
+		"\n----Follow this guidline----\n"
+		"\nAdditon opertaor = +"
+		"\nsubtraction opertaor = -"
+		"\nMultiplication operator = *"
+		"\nDivision operator = /"
+		"\nSquare Operator = ^\n");
+	
 	printf("\nEnter a Postfix Expression and press 'Enter' after expression complete::\n");
 	scanf("%s",arr);
 	int result = postfixEvaluation(arr);
