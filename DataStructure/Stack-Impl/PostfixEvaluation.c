@@ -7,7 +7,7 @@ int Top=-1;
 
 void push(int data)
 {
-	if(Top==Max-1)
+	if(Top==MAX-1)
 	{
 		printf("'\nStack is overflow \n");
 	}
@@ -19,7 +19,7 @@ void push(int data)
 
 int pop()
 {
-	if(Top==-1])
+	if(Top==-1)
 	{
 		printf("'\nStack is Underflow \n");
 	}
@@ -28,40 +28,52 @@ int pop()
 		return Stack[Top--];
 	}
 }
-
+int myPow(int a,int b)
+{
+	int c = a;
+	for(int i=1;i<b;i++)
+	{
+		c = c*a;//1. 4*4 2. 16*4
+	}
+return c;
+}
 int postfixEvaluation(char *arr)
 {
-	int Operand,Operand1,value;
-	char *copyArray;
+	int Operand1,Operand2,value;
+	char *copyArrayLoc;
 	copyArray = arr;
-	for(;*copyArray!='\0';copyArray++)
+	for(;*copyArrayLoc!='\0';copyArrayLoc++)
 	{
-		if(isdigit(*copyArray))
+		//for first digit or value
+		if(isdigit(*copyArrayLoc))
 		{
-			push(*copyArray - '0');/*ASCII code of digit */
+			push(*copyArrayLoc - '0');/*ASCII code of digit */
 		}
 		else
 		{
-			Operand = pop();
 			Operand1 = pop();
-			switch(*copyArray)
+			Operand2 = pop();
+			switch(*copyArrayLoc)
 			{
 				
 				case '+':
-						  value=Operand1+Operand;
+						  value=Operand2 + Operand1;
 						  break;
 				case '-':
-						  value=Operand1-Operand;
+						  value=Operand2 - Operand1;
 						  break;
 				case '*':
-						  value=Operand1*Operand;
+						  value=Operand2 * Operand1;
 						  break;
 				case '/':
-						  value=Operand1/Operand;
+						  value=Operand2 / Operand1;
 						  break;
 				case '%':
-						  value=Operand1%Operand;
-						  break;						  						  						  			
+						  value=Operand2 % Operand1;
+						  break;
+				case '^':
+						  value=myPow(Operand2,Operand1);
+						  break;	  			
 			}
 			push(value);
 		}
@@ -71,7 +83,7 @@ int postfixEvaluation(char *arr)
 int main()
 {
 	char arr[MAX];
-	printf("\nEnter a Postfix Expression :: ");
+	printf("\nEnter a Postfix Expression and press 'Enter' after expression complete::\n");
 	scanf("%s",arr);
 	int result = postfixEvaluation(arr);
 	printf("\nThe Evaluation of this Postfix Expression %s is :: %d\n",arr,result);
