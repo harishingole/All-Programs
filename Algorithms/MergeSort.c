@@ -3,11 +3,11 @@
 #define MAX 100
 
 
-int LeftArray[MAX];  		//Sorted list of Array
-int RightArray[MAX];		//Sorted list of Array
+int LeftArray[MAX];  		//Half Sorted list of Array
+int RightArray[MAX];		//Half Sorted list of Array
 int n1,n2;  			//Size of the list of Array
 
-void divide(int arr[], int l, int mid, int h)
+void divideArray(int arr[], int l, int mid, int h)
 {
 	int i,j;
 	n1 = mid - l + 1;
